@@ -1,7 +1,6 @@
-export const FeedBackStats = ({ items }) => {
-  const countTotalFeedback = items.bad + items.neutral + items.good;
-  const countPositiveFeedbackPercentage =
-    (items.good * 100) / countTotalFeedback;
+export const FeedBackStats = ({ good, neutral, bad }) => {
+  const countTotalFeedback = good + neutral + bad;
+  const countPositiveFeedbackPercentage = (good * 100) / countTotalFeedback;
   const positiveFeedbackPercentage = Math.round(
     countPositiveFeedbackPercentage
   );
@@ -12,9 +11,9 @@ export const FeedBackStats = ({ items }) => {
 
       {countTotalFeedback !== 0 ? (
         <ul>
-          <li>Good: {items.good}</li>
-          <li>Neutral: {items.neutral}</li>
-          <li>Bad: {items.bad}</li>
+          <li>Good: {good}</li>
+          <li>Neutral: {neutral}</li>
+          <li>Bad: {bad}</li>
           <li>Total: {countTotalFeedback}</li>
           <li>Positive feedback: {positiveFeedbackPercentage}%</li>
         </ul>
